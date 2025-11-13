@@ -31,9 +31,9 @@ def post_detail(request, id):
     )
 
     # Проверка условий публикации
-    if (not post.is_published or
-            not post.category.is_published or
-            post.pub_date > timezone.now()):
+    if (not post.is_published
+            or not post.category.is_published
+            or post.pub_date > timezone.now()):
         from django.http import Http404
         raise Http404("Публикация не найдена")
 
